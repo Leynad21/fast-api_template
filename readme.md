@@ -17,7 +17,7 @@ To add new dependencies:
 
 ```
 poetry add {dependency_name}
-poetry add {dependency_name} --dev # To add dev dependencies
+poetry add {dependency_name} --group dev # To add dev dependencies
 ```
 
 # How to Run the Project
