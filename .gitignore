@@ -1,0 +1,52 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Poetry virtual environment cache
+poetry.lock
+
+# Environment variables file
+.env
+.env.*
+
+# Virtual environment folder (if created outside Poetry's default location)
+venv/
+.venv/
+
+# MacOS files
+.DS_Store
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+
+# Logs
+logs/
+*.log
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+
+# Test output
+*.pytest_cache/
+junitxml/
+
+# Mypy and other static analysis
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
