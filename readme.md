@@ -1,6 +1,6 @@
 ## About Project
 
-User Management Service of SEL
+Book Management Service
 
 # How to install
 
@@ -47,4 +47,34 @@ poetry run pytest --cov # Run with coverage info
 
 # More info
 
-None
+```
+book_collection/
+├── app/
+│   ├── core/
+│   │   ├── config.py             # Application configuration
+│   │   ├── security.py           # Security utilities (JWT, hashing)
+│   │   └── errors.py             # Custom error handling and exceptions
+│   ├── models/
+│   │   ├── user.py               # User model
+│   │   └── book.py               # Book model
+│   ├── routers/
+│   │   ├── v1/                   # API version 1 routers
+│   │   │   ├── auth_router.py    # Auth routes (signup, login)
+│   │   │   └── books_router.py   # Book CRUD routes
+│   ├── schemas/
+│   │   ├── user.py               # User Pydantic schemas
+│   │   └── book.py               # Book Pydantic schemas
+│   ├── crud/
+│   │   ├── user_crud.py          # CRUD functions for user
+│   │   └── book_crud.py          # CRUD functions for book
+│   ├── services/
+│   │   ├── auth_service.py       # Handles user registration and login
+│   │   └── book_service.py       # Book-related business logic
+│   ├── db/
+│   │   └── session.py            # Database session management
+│   ├── main.py                   # Main FastAPI app
+│   └── deps.py                   # Dependency functions for routes
+└── tests/
+    ├── test_auth.py              # Tests for authentication
+    └── test_books.py             # Tests for book CRUD
+``` 
