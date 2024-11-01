@@ -25,14 +25,17 @@ poetry add {dependency_name} --group dev # To add dev dependencies
 After setting up the environment and installing dependencies, you can run the project with the following commands:
 
 ### Activate the Poetry Shell:
+
 ```
 poetry shell
 ```
 
 ### Run the Application
+
 ```
 uvicorn app.main:app --reload
 ```
+
 This command starts the server in development mode with hot-reloading. You can then access the application locally at http://127.0.0.1:8000.
 
 Add --port XXXX if you want to specify the port
@@ -40,9 +43,43 @@ Add --port XXXX if you want to specify the port
 # How to test
 
 To run test:
+
 ```
 poetry run pytest
 poetry run pytest --cov # Run with coverage info
+```
+
+# How to Use Alembic for Database Migrations
+
+Alembic is used to manage database migrations for schema changes over time. Follow these steps to set up and run migrations:
+
+## Initial Alembic Setup
+
+After creating a new database or if setting up migrations for the first time, use these steps to configure and apply migrations.
+
+### Initialize Alembic Tracking in the Database
+
+If this is the first time you’re setting up Alembic, you need to initialize the database with Alembic’s tracking table. This can be done by stamping the database with the latest migration head:
+
+```
+alembic init app/db/migrations
+```
+
+### Generate a New Migration
+
+When you make changes to models (e.g., adding or modifying fields), you can generate a new migration that reflects these changes:
+
+```
+alembic revision --autogenerate -m "Description of changes"
+```
+
+Alembic will create a migration script in the `migrations/versions` directory. Review this script to ensure it accurately reflects your intended changes.
+
+### Apply Migrations
+
+Once you’ve reviewed the migration script, apply it to the database:
+```
+alembic upgrade head
 ```
 
 # More info
@@ -77,4 +114,4 @@ book_collection/
 └── tests/
     ├── test_auth.py              # Tests for authentication
     └── test_books.py             # Tests for book CRUD
-``` 
+```

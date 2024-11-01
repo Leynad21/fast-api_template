@@ -11,5 +11,6 @@ class Book(Base):
     author = Column(String)
     description = Column(String)
     owner_id = Column(Integer, ForeignKey("users.id"))
+    # text = Column(String)
 
     owner = relationship("User", back_populates="books")
